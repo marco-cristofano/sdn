@@ -4,14 +4,14 @@ import json
   
 class OpenDayLight:
      cant_switch = None
+     priority=5
      switch = []
 
      def startOpenDayLight(self):
           self.cant_switch=self.getNodes()
           for i in range (0,self.cant_switch):
-              self.switch.append(5)
+              self.switch.append(self.priority)
                
-
 
      def url_addFlow(self,switch, table, flow):
           return "http://localhost:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:"+str(switch)+"/table/"+str(table)+"/flow/"+ str(flow)
@@ -64,6 +64,7 @@ class OpenDayLight:
      
      def addFlows(self,ip_origen,puerto_origen,ip_destino,puerto_destino,protocolo,action):
           print self.cant_switch
+          self.priority=self.priority+1
           for switch in range(0,self.cant_switch):
                self.addFlow(ip_origen,puerto_origen,ip_destino,puerto_destino,protocolo,action,switch+1,self.switch[switch]) 
                self.switch[switch]=self.switch[switch]+1

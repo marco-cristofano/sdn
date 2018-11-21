@@ -15,6 +15,18 @@ ODL = odl_comunication.OpenDayLight();
 def index():
      return render_template('index.html')
 
+@app.route('/flows')
+def flows():
+     return render_template('flows.html', form='') ##haceer llamado al afucnion
+
+@app.route('/actionflows', methods=['POST'])
+def actionflows():
+     if request.method == 'POST' :
+        if validateSwitch(request.form,request.form['switch']):
+              return render_template('index.html')
+        else:
+              return render_template('flows.html', form=request.form)
+
 
 @app.route("/services")
 def services():
@@ -28,7 +40,7 @@ def action():
           if validateFlow(request.form):
                mensaje=0
                Flow.print_all()
-               ODL.startOpenDayLight()
+               ODL.startOpenDayLight() ##DEBE SER PROBADO
                ODL.addFlows(Flow.ip_origen,Flow.puerto_origen,Flow.ip_destino,Flow.puerto_destino,Flow.protocolo,Flow.accion)
           else:
                mensaje=1
@@ -142,6 +154,17 @@ def validateMascara(mascara):
           else:
                return True
      except:
+          return False
+
+def validateSwitch(form,switch):
+     try:
+          if int(switch) < 1 or int(switch) > 2:##cambiar
+               form.errors['switch']='Numero de Switch Incorrecto'
+               return False
+          else:
+               return True
+     except:
+          form.errors['switch']='Numero de Switch Incorrecto'
           return False
 
 
