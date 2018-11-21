@@ -1,10 +1,17 @@
 import requests
-import xml.etree.ElementTree as ET
+from lxml import etree
 import json 
   
 class OpenDayLight:
-     cant_switch = 5
-     switchs = [5,5,5,5,5]
+     cant_switch = None
+     switch = []
+
+     def startOpenDayLight(self):
+          self.cant_switch=self.getNodes()
+          for i in range (0,self.cant_switch):
+              self.switch.append(5)
+               
+
 
      def url_addFlow(self,switch, table, flow):
           return "http://localhost:8181/restconf/config/opendaylight-inventory:nodes/node/openflow:"+str(switch)+"/table/"+str(table)+"/flow/"+ str(flow)
@@ -14,11 +21,8 @@ class OpenDayLight:
           payload=str(payload)+"""<instructions><instruction><order>0</order><apply-actions><action><order>0</order>""" 
           if str(accion) == '0':
                 payload=str(payload)+"""<drop-action/>"""
-              
-
           if str(accion) == '1':
                 payload=str(payload)+"""<output-action><output-node-connector>ALL</output-node-connector><max-length>60</max-length></output-action>"""                     
-          
           payload=str(payload)+"""</action></apply-actions></instruction></instructions>"""
           
           payload=str(payload)+"""<match><ethernet-match><ethernet-type><type>2048</type></ethernet-type></ethernet-match>"""
@@ -56,12 +60,13 @@ class OpenDayLight:
           HEADERS = {'Content-Type': 'application/xml','Accept':'application/xml'}
           PAYLOAD= self.assemble_payload(flow,ip_origen,puerto_origen,ip_destino,puerto_destino,protocolo,accion,flow,table_id)
           r = requests.put(url=URL, auth=('admin', 'admin') ,headers=HEADERS,data=PAYLOAD).text
-          print (r.status_code)  
+         
      
      def addFlows(self,ip_origen,puerto_origen,ip_destino,puerto_destino,protocolo,action):
+          print self.cant_switch
           for switch in range(0,self.cant_switch):
-               self.addFlow(ip_origen,puerto_origen,ip_destino,puerto_destino,protocolo,action,switch,self.switchs[switch]) 
-               self.switchs[switch]=self.switchs[switch]+1
+               self.addFlow(ip_origen,puerto_origen,ip_destino,puerto_destino,protocolo,action,switch+1,self.switch[switch]) 
+               self.switch[switch]=self.switch[switch]+1
           
             
 
@@ -74,14 +79,16 @@ class OpenDayLight:
           except:     
                return False
 
-     def get_nodes(self):
+     def getNodes(self):
           URL="http://localhost:8181/restconf/operational/opendaylight-inventory:nodes/"
           HEADERS = {'Content-Type': 'application/xml','Accept':'application/xml'}
-          r=requests.get(url=URL, auth=('admin', 'admin') ,headers=HEADERS)
-          b=r.content
-          print r.headers
-          #print r.raw
-          #print r.text
-          root=ET.fromstring(b)
+          r = requests.get(url=URL, auth=('admin', 'admin') ,headers=HEADERS,stream=True)
+          r.raw.decode_content = True
+          doc = etree.parse(r.raw)
+          raiz = doc.getroot()
+          cant=0;
+          for hijos in raiz:
+               cant=cant+1
+          return cant
         
 

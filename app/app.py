@@ -28,6 +28,7 @@ def action():
           if validateFlow(request.form):
                mensaje=0
                Flow.print_all()
+               ODL.startOpenDayLight()
                ODL.addFlows(Flow.ip_origen,Flow.puerto_origen,Flow.ip_destino,Flow.puerto_destino,Flow.protocolo,Flow.accion)
           else:
                mensaje=1
