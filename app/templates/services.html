@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Flow Manager</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css')}}" />
+
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/half-slider.css')}}" />
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/index">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/services">Services</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <!-- Page Content -->
+  <section class="py-5 container">
+    <div class="">
+      <h2 class="text-center">Flow Manager</h2>
+    </div>
+    <form action="action" method="POST">
+      <div class="container ">
+          <div class="row">
+              <div class="col-sm-4">
+                  <center> 
+                    <b><label for="exampleFormControlInput1" class="text-center">IP Origen </b>
+                    
+                    <input type="text" class="form-control  text-center" id="form.ip_origen" size="25" placeholder="10.10.10.0" name="ip_origen">
+                    <label for="exampleFormControlInput1" class="text-center"> /
+                    <input type="number" min="0" step="1" max="32" class="form-control  text-center" id="mascara_origen" placeholder="24" name="mascara_origen"> 
+                     <br>
+                   <b><label for="exampleFormControlInput1" class="text-center">Puerto Origen </b>
+                    <input type="number" min="0" step="1" max="65535" class="form-control  text-center" id="puerto_origen" placeholder="155" name="puerto_origen">
+                  </center>
+            </div>
+            <div class="col-sm-4">
+                  <center> 
+                    <label for="exampleFormControlSelect1" class="text-center">Acción 
+                    <select class="form-control text-center" id="exampleFormControlSelect1" name="accion">
+                          <option  value="0">Prohibir</option>
+                          <option  value="1">Aceptar</option>
+                    </select>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <b><label for="exampleFormControlSelect1" class="text-center">Protocolo </b>
+                    <div class="radio">
+                        <label><input type="radio" name="protocolo" value="0"checked>TCP</label>
+                    </div>
+                    <div class="radio">
+                        <label><input type="radio" name="protocolo" value="1">UDP</label>
+                    </div>
+                  </center>
+            </div>
+            <div class="col-sm-4">
+                  <center>
+                    <b><label for="exampleFormControlInput1" class="text-center">IP Destino </b>
+                    <input type="text" class="form-control  text-center" id="form.ip_destino" size="15" placeholder="198.344.124.0" name="ip_destino">
+                    <label for="exampleFormControlInput1" class="text-center"> /
+                    <input type="number" min="0" step="1" max="32" class="form-control  text-center" id="mascara_destino" placeholder="24" name="mascara_destino">
+                     <br>
+                     <b><label for="exampleFormControlInput1" class="text-center">Puerto Destino </b>
+                    <input type="number" min="0" step="1" max="65535" class="form-control text-center"  id="puerto_destino" placeholder="8080" name="puerto_destino" >
+                 </center>
+
+            </div>
+          </div>
+       </div>
+         <center>  <button type="submit" class="btn btn-dark btn-lg" > Enviar</button> </center>
+      <br>
+      </body>
+    </form> 
+</section>
+  
+                  {% if 'puerto_origen' in form.errors %}
+                  <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading text-center ">Error</h4>
+                    <center> <p>{{ form.errors['puerto_origen'] }}</p> </center>
+                    <hr>
+                    <p class="mb-0"></p>
+                  </div>
+                  {% endif %}
+                  {% if 'puerto_destino' in form.errors %}
+                  <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading text-center ">Error</h4>
+                    <center><p>{{ form.errors['puerto_destino'] }}</p></center>
+                    <hr>
+                    <p class="mb-0"></p>
+                  </div>
+                  {% endif %}
+                  {% if 'mascara_origen' in form.errors %}
+                  <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading  text-center ">Error</h4>
+                    <center> <p>{{ form.errors['mascara_origen'] }}</p> </center>
+                    <hr>
+                    <p class="mb-0"></p>
+                  </div>
+                  {% endif %}
+                  {% if 'mascara_destino' in form.errors %}
+                  <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading text-center ">Error</h4>
+                    <center> <p>{{ form.errors['mascara_destino'] }}</p> </center>
+                    <hr>
+                    <p class="mb-0"></p>
+                  </div>
+                  {% endif %}
+                  {% if 'ip_origen' in form.errors %}
+                  <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading text-center ">Error</h4>
+                    <center><p>{{ form.errors['ip_origen'] }}</p></center>
+                    <hr>
+                    <p class="mb-0"></p>
+                  </div>
+                  {% endif %}
+                  {% if 'ip_destino' in form.errors %}
+                  <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading text-center ">Error</h4>
+                    <center><p>{{ form.errors['ip_destino'] }}</p><c/enter>
+                      <hr>
+                      <p class="mb-0"></p>
+                    </div>
+                    {% endif %}
+
+
+                    {% if mensaje == 0 %}
+                    <div class="alert alert-success" role="alert">
+                      <h4 class="succes-heading text-center">Enhorabuena</h4>
+                      <center><p> Creacion de flujo exitosa</p></center>
+                      <hr>
+                      <p class="mb-0"></p>
+                    </div>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="col-xs-6 col-md-4"></div>
+              </div>
+              <!-- Footer -->
+              <footer class="py-5 bg-dark">
+                <div class="container">
+                  <p class="m-0 text-center text-white">Redes y Servicios Avanzados de Internet </p>
+                  <p class="m-0 text-center text-white">2018</p>
+                </div>
+                <!-- /.container -->
+              </footer>
+
+
+              <!-- Bootstrap core JavaScript -->
+              <script type="text/javascript" src="{{url_for('static', filename='vendor/jquery/jquery.min.js')}}"></script> 
+              <script type="text/javascript" src="{{url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script> 
+              </html>

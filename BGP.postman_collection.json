@@ -1,0 +1,310 @@
+{
+	"id": "5b4c72e1-b8f0-0cb8-cf29-24b3de3df254",
+	"name": "Edu",
+	"description": "",
+	"order": [
+		"40da82ea-73c2-4321-9a58-374378fefbdd",
+		"e170580b-90ca-445c-c57c-dfd0391e5b4c",
+		"66e64ae3-9545-5c8c-17c6-4b5f649b2ee0",
+		"19c191c5-31f2-7db0-1dea-6825828c542f",
+		"8700fe87-9616-eebd-6991-095563951dc8",
+		"e251a120-25ea-a887-4c5b-b3db089ba0e8",
+		"4c65e87e-f00d-abb3-a980-0d9d532d998e",
+		"93c2f277-0a5a-1290-dc7f-f28e3b36bdbe"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1542426088003,
+	"owner": "3897108",
+	"public": false,
+	"requests": [
+		{
+			"id": "19c191c5-31f2-7db0-1dea-6825828c542f",
+			"headers": "Content-Type: application/xml\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/xml",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols/protocol/openconfig-policy-types:BGP/example-bgp-rib/bgp/neighbors",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1542494594927,
+			"name": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols copy",
+			"description": null,
+			"collectionId": "5b4c72e1-b8f0-0cb8-cf29-24b3de3df254",
+			"responses": [],
+			"rawModeData": "<neighbor xmlns=\"urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions\">\n                    <neighbor-address>192.168.57.103</neighbor-address>\n                    <config>\n                        <peer-type>EXTERNAL</peer-type>\n                        <peer-as>64999</peer-as>\n                    </config>\n                    <transport>\n                        <config>\n                            <remote-port>179</remote-port>\n                            <passive-mode>true</passive-mode>\n                        </config>\n                    </transport>\n                    <timers>\n                        <config>\n                            <hold-time>180</hold-time>\n                            <connect-retry>10</connect-retry>\n                        </config>\n                    </timers>\n                    <route-reflector>\n                        <config>\n                            <route-reflector-client>false</route-reflector-client>\n                        </config>\n                    </route-reflector>\n                    <afi-safis>\n                        <afi-safi>\n                            <afi-safi-name xmlns:x=\"http://openconfig.net/yang/bgp-types\">x:IPV4-UNICAST</afi-safi-name>\n                            <!--Advertise N Paths\n                            <receive>true</receive>\n                            <send-max>0</send-max>-->\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name xmlns:x=\"http://openconfig.net/yang/bgp-types\">x:IPV6-UNICAST</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name xmlns:x=\"http://openconfig.net/yang/bgp-types\">x:IPV4-LABELLED-UNICAST</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name xmlns:x=\"http://openconfig.net/yang/bgp-types\">x:IPV6-LABELLED-UNICAST</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name xmlns:x=\"http://openconfig.net/yang/bgp-types\">x:L3VPN-IPV4-UNICAST</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name xmlns:x=\"http://openconfig.net/yang/bgp-types\">x:L3VPN-IPV6-UNICAST</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name xmlns:x=\"http://openconfig.net/yang/bgp-types\">x:L2VPN-EVPN</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name>LINKSTATE</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name>IPV4-FLOW</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name>IPV6-FLOW</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name>IPV4-L3VPN-FLOW</afi-safi-name>\n                        </afi-safi>\n                        <afi-safi>\n                            <afi-safi-name>IPV6-L3VPN-FLOW</afi-safi-name>\n                        </afi-safi>\n                    </afi-safis>\n                </neighbor>\n               "
+		},
+		{
+			"id": "40da82ea-73c2-4321-9a58-374378fefbdd",
+			"headers": "Content-Type: application/xml\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/xml",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8181/restconf/operational/bgp-rib:bgp-rib/rib/bgp-example/peer/bgp:%2F%2F192.168.0.56",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1542426288094,
+			"name": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols",
+			"description": null,
+			"collectionId": "5b4c72e1-b8f0-0cb8-cf29-24b3de3df254",
+			"responses": [],
+			"rawModeData": "<neighbor xmlns=\"urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions\">\n    <neighbor-address>192.168.56.10</neighbor-address>\n    <timers>\n        <config>\n            <hold-time>90</hold-time>\n            <connect-retry>10</connect-retry>\n        </config>\n    </timers>\n    <transport>\n        <config>\n            <remote-port>179</remote-port>\n            <passive-mode>false</passive-mode>\n        </config>\n    </transport>\n    <config>\n        <peer-type>INTERNAL</peer-type>\n    </config>\n</neighbor>"
+		},
+		{
+			"id": "4c65e87e-f00d-abb3-a980-0d9d532d998e",
+			"headers": "Content-Type: application/xml\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/xml",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols/protocol/openconfig-policy-types:BGP/example-bgp-rib/bgp/neighbors",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1542430507035,
+			"name": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols copy",
+			"description": null,
+			"collectionId": "5b4c72e1-b8f0-0cb8-cf29-24b3de3df254",
+			"responses": [],
+			"rawModeData": "<neighbor xmlns=\"urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions\">\n    <neighbor-address>10.25.1.9</neighbor-address>\n    <config>\n        <peer-group>application-peers</peer-group>\n    </config>\n</neighbor>"
+		},
+		{
+			"id": "66e64ae3-9545-5c8c-17c6-4b5f649b2ee0",
+			"name": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols copy",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"rawModeData": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<input xmlns=\"urn:opendaylight:flow:service\">\n   <barrier>false</barrier>\n   <node xmlns:inv=\"urn:opendaylight:inventory\">/inv:nodes/inv:node[inv:id=\"openflow:2\"]</node>\n   <cookie>55</cookie>\n   <flags>SEND_FLOW_REM</flags>\n   <match>\n    <ethernet-match>\n     <ethernet-type>\n       <type>2048</type>\n     </ethernet-type>\n    </ethernet-match>\n    <ipv4-destination>10.0.10.2/32</ipv4-destination>\n   </match>\n   <priority>0</priority>\n   <strict>false</strict>\n   <table_id>0</table_id>\n</input>",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/xml\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"method": "DELETE",
+			"pathVariables": {},
+			"url": "http://localhost:8181/restconf/operations/sal-flow:remove-flow",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/xml",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "5b4c72e1-b8f0-0cb8-cf29-24b3de3df254",
+			"isFromCollection": true,
+			"collectionRequestId": "ab17925a-444c-75b9-826d-b528c379b49a"
+		},
+		{
+			"id": "8700fe87-9616-eebd-6991-095563951dc8",
+			"headers": "Content-Type: application/xml\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/xml",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1542495550127,
+			"name": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols copy copy copy",
+			"description": null,
+			"collectionId": "5b4c72e1-b8f0-0cb8-cf29-24b3de3df254",
+			"responses": [],
+			"rawModeData": "<protocol xmlns=\"http://openconfig.net/yang/network-instance\">\n    <name>example-bgp-rib</name>\n    <identifier xmlns:x=\"http://openconfig.net/yang/policy-types\">x:BGP</identifier>\n    <bgp xmlns=\"urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions\">\n        <global>\n            <config>\n                <router-id>192.168.57.5</router-id>\n                <as>65000</as>\n            </config>\n        </global>\n    </bgp>\n</protocol>"
+		},
+		{
+			"id": "93c2f277-0a5a-1290-dc7f-f28e3b36bdbe",
+			"headers": "Content-Type: application/xml\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/xml",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8181/restconf/operational/bgp-rib:bgp-rib/rib/example-bgp-rib",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "GET",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1542430600875,
+			"name": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols copy",
+			"description": null,
+			"collectionId": "5b4c72e1-b8f0-0cb8-cf29-24b3de3df254",
+			"responses": [],
+			"rawModeData": "<neighbor xmlns=\"urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions\">\n    <neighbor-address>10.25.1.9</neighbor-address>\n    <config>\n        <peer-group>application-peers</peer-group>\n    </config>\n</neighbor>"
+		},
+		{
+			"id": "e170580b-90ca-445c-c57c-dfd0391e5b4c",
+			"name": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols copy",
+			"dataMode": "raw",
+			"data": [],
+			"auth": null,
+			"events": null,
+			"rawModeData": "<bgp-peer-acceptor-config xmlns=\"urn:opendaylight:params:xml:ns:yang:odl-bgp-peer-acceptor-config\">\n    <config-name>default</config-name>\n    <binding-address>0.0.0.0</binding-address>\n    <binding-port>179</binding-port>\n</bgp-peer-acceptor-config>",
+			"descriptionFormat": "html",
+			"description": null,
+			"variables": null,
+			"headers": "Content-Type: application/xml\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"method": "PUT",
+			"pathVariables": {},
+			"url": "http://localhost:8181/restconf/config/odl-bgp-peer-acceptor-config:bgp-peer-acceptor-config/default",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": null,
+			"helperAttributes": null,
+			"queryParams": [],
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/xml",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"enabled": true
+				}
+			],
+			"pathVariableData": [],
+			"responses": [],
+			"collectionId": "5b4c72e1-b8f0-0cb8-cf29-24b3de3df254",
+			"isFromCollection": true,
+			"collectionRequestId": "97b569dc-8f84-20cc-c001-0cd5b967082e"
+		},
+		{
+			"id": "e251a120-25ea-a887-4c5b-b3db089ba0e8",
+			"headers": "Content-Type: application/xml\nAuthorization: Basic YWRtaW46YWRtaW4=\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/xml",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Authorization",
+					"value": "Basic YWRtaW46YWRtaW4=",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols/protocol/openconfig-policy-types:BGP/example-bgp-rib/bgp/neighbors",
+			"queryParams": [],
+			"preRequestScript": null,
+			"pathVariables": {},
+			"pathVariableData": [],
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1542429298481,
+			"name": "http://localhost:8181/restconf/config/openconfig-network-instance:network-instances/network-instance/global-bgp/openconfig-network-instance:protocols copy",
+			"description": null,
+			"collectionId": "5b4c72e1-b8f0-0cb8-cf29-24b3de3df254",
+			"responses": [],
+			"rawModeData": "<neighbor xmlns=\"urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions\">\n    <neighbor-address>192.168.0.56</neighbor-address>\n    <config>\n        <simple-routing-policy>learn-none</simple-routing-policy>\n    </config>\n</neighbor>"
+		}
+	]
+}
