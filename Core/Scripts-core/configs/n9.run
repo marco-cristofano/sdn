@@ -16,6 +16,7 @@ interface eth2
 !
 interface lo
 !
+no router bgp 9
 router bgp 64999
  bgp router-id 192.172.0.10
  network 192.172.0.0/24
