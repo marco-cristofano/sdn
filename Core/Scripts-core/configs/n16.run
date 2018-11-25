@@ -21,6 +21,7 @@ router ospf
  network 192.172.0.4/30 area 0.0.0.0
  network 192.172.0.12/30 area 0.0.0.0
  network 192.172.192.0/30 area 0.0.0.2
+ area 0.0.0.2 stub no-summary
 !
 ip forwarding
 ipv6 forwarding

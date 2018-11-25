@@ -14,8 +14,8 @@ interface lo
 !
 router ospf
  ospf router-id 192.172.64.1
- network 192.172.0.0/30 area 0.0.0.0
- network 192.172.64.0/27 area 0.0.0.0
+ network 192.172.0.0/30 area 0.0.0.1
+ network 192.172.64.0/27 area 0.0.0.1
 !
 ip forwarding
 ipv6 forwarding

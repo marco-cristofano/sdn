@@ -17,6 +17,7 @@ router ospf
  redistribute connected
  network 192.172.128.0/27 area 0.0.0.2
  network 192.172.192.0/30 area 0.0.0.2
+ area 0.0.0.2 stub no-summary
 !
 ip forwarding
 ipv6 forwarding
