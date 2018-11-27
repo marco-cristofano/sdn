@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- vi: set et smarttab sw=4 tabstop=4: -->
+<!--
+    Copyright (c) 2016 Cisco Systems, Inc. and others.  All rights reserved.
+
+    This program and the accompanying materials are made available under the
+    terms of the Eclipse Public License v1.0 which accompanies this distribution,
+    and is available at http://www.eclipse.org/legal/epl-v10.html
+-->
+<protocols xmlns="http://openconfig.net/yang/network-instance">
+    <protocol>
+        <name>example-bgp-rib</name>
+        <identifier xmlns:x="http://openconfig.net/yang/policy-types">x:BGP</identifier>
+        <bgp xmlns="urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions">
+            <global>
+                <config>
+                    <!-- La que esta ahora es la VM donde odl esta corriendo> -->
+                    <router-id>192.168.56.102</router-id>
+                    <as>65000</as>
+                    <!-- if cluster-id is not present, it's value is the same as bgp-id -->
+                    <!-- <route-reflector-cluster-id>192.0.2.3</route-reflector-cluster-id> -->
+                </config>
+                <afi-safis>
+                    <afi-safi>
+                        <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:IPV4-UNICAST</afi-safi-name>
+                        <!--Advertise N Paths-->
+                        <receive>true</receive>
+                        <send-max>2</send-max>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:IPV6-UNICAST</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:IPV4-LABELLED-UNICAST</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:IPV6-LABELLED-UNICAST</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:L3VPN-IPV4-UNICAST</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:L3VPN-IPV6-UNICAST</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:L2VPN-EVPN</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name>LINKSTATE</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name>IPV4-FLOW</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name>IPV6-FLOW</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name>IPV4-L3VPN-FLOW</afi-safi-name>
+                    </afi-safi>
+                    <afi-safi>
+                        <afi-safi-name>IPV6-L3VPN-FLOW</afi-safi-name>
+                    </afi-safi>
+                </afi-safis>
+            </global>
+            <neighbors xmlns="urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions">
+                <neighbor xmlns="urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions">
+                    <!-- La que esta ahora la ip del router quagga (core)> -->                
+                    <neighbor-address>192.168.56.110</neighbor-address>
+                    <config>
+                        <peer-type>EXTERNAL</peer-type>
+                        <peer-as>64999</peer-as>
+                    </config>
+                    <transport>
+                        <config>
+                            <remote-port>179</remote-port>
+                            <passive-mode>true</passive-mode>
+                        </config>
+                    </transport>
+                    <timers>
+                        <config>
+                            <hold-time>90</hold-time>
+                            <connect-retry>10</connect-retry>
+                        </config>
+                    </timers>
+                    <route-reflector>
+                        <config>
+                            <route-reflector-client>false</route-reflector-client>
+                        </config>
+                    </route-reflector>
+                    <afi-safis>
+                        <afi-safi>
+                            <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:IPV4-UNICAST</afi-safi-name>
+                            <!--Advertise N Paths-->
+                            <receive>true</receive>
+                            <send-max>0</send-max>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:IPV6-UNICAST</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:IPV4-LABELLED-UNICAST</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:IPV6-LABELLED-UNICAST</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:L3VPN-IPV4-UNICAST</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:L3VPN-IPV6-UNICAST</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name xmlns:x="http://openconfig.net/yang/bgp-types">x:L2VPN-EVPN</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name>LINKSTATE</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name>IPV4-FLOW</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name>IPV6-FLOW</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name>IPV4-L3VPN-FLOW</afi-safi-name>
+                        </afi-safi>
+                        <afi-safi>
+                            <afi-safi-name>IPV6-L3VPN-FLOW</afi-safi-name>
+                        </afi-safi>
+                    </afi-safis>
+                </neighbor>
+                <neighbor xmlns="urn:opendaylight:params:xml:ns:yang:bgp:openconfig-extensions">
+                    <neighbor-address>192.0.2.6</neighbor-address>
+                    <config>
+                        <peer-group>application-peers</peer-group>
+                    </config>
+                </neighbor>
+            </neighbors>
+        </bgp>
+    </protocol>
+</protocols>
