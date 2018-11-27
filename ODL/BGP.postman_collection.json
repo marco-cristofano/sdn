@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Server BGP Copy",
+			"name": "Server BGP",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -52,7 +52,7 @@
 			"response": []
 		},
 		{
-			"name": "Inyectar ruta en Rib Copy",
+			"name": "Inyectar ruta en Rib",
 			"request": {
 				"auth": {
 					"type": "basic",
@@ -102,7 +102,7 @@
 			"response": []
 		},
 		{
-			"name": "Ver Instancia bgp-xample Copy",
+			"name": "Ver Instancia bgp-xample",
 			"request": {
 				"auth": {
 					"type": "basic",
