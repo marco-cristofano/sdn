@@ -8,7 +8,7 @@ from mininet.topolib import TreeTopo
 from mininet.node import CPULimitedHost, Host, Node
 from mininet.node import OVSKernelSwitch, UserSwitch
 # OpenDayLight controller
-ODL_CONTROLLER_IP='192.168.56.101'
+ODL_CONTROLLER_IP='192.168.56.102'
 ODL_CONTROLLER_PORT=6633
 # Define remote OpenDaylight Controller
 info( 'OpenDaylight IP Addr:', ODL_CONTROLLER_IP, '\n' )
