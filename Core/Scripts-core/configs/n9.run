@@ -24,9 +24,9 @@ router bgp 64999
 !
 router ospf
  ospf router-id 192.172.0.10
- network 192.168.57.0/24 area 0.0.0.0
  network 192.172.0.8/30 area 0.0.0.0
  network 192.172.0.12/30 area 0.0.0.0
+ redistribute bgp
 !
 ip forwarding
 ipv6 forwarding

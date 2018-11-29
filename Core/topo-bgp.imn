@@ -28,7 +28,17 @@ node n4 {
 	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
 	custom-command /usr/local/etc/quagga/Quagga.conf
 	config {
-	
+	interface eth0
+	  ip address 192.172.64.1/27
+	!
+	interface eth2
+	  ip address 192.172.0.1/30
+	!
+	router ospf
+	  router-id 192.172.64.1
+	  network 192.172.64.0/27 area 1
+	  network 192.172.0.0/30 area 1
+	!
 	
 	}
     }
@@ -236,6 +246,63 @@ node n9 {
     interface-peer {eth1 n16}
     interface-peer {eth2 n7}
     services {zebra OSPFv2 BGP vtysh IPForward}
+    custom-config {
+	custom-config-id service:zebra
+	custom-command zebra
+	config {
+	files=('/usr/local/etc/quagga/Quagga.conf', 'quaggaboot.sh', '/usr/local/etc/quagga/vtysh.conf', )
+	}
+    }
+    custom-config {
+	custom-config-id service:zebra:/usr/local/etc/quagga/Quagga.conf
+	custom-command /usr/local/etc/quagga/Quagga.conf
+	config {
+	interface eth0
+	  ip address 192.172.0.10/30
+	  
+	!
+	interface eth1
+	  ip address 192.172.0.13/30
+	  
+	!
+	interface eth2
+	  ip address 192.168.57.103/24
+	  
+	!
+	router ospf
+	  router-id 192.172.0.10
+	  network 192.172.0.8/30 area 0
+	  network 192.172.0.12/30 area 0
+	  no network 192.168.57.0/24 area 0
+	!
+	!
+	! BGP configuration
+	!
+	! You should configure the AS number below,
+	! along with this router's peers.
+	!
+	router bgp 9
+	  bgp router-id 192.172.0.10
+	  redistribute connected
+	! neighbor 1.2.3.4 remote-as 555
+	!
+	
+	}
+    }
+    custom-config {
+	custom-config-id service:BGP
+	custom-command BGP
+	config {
+	dirs=
+	files=
+	startidx=40
+	cmdup=('sh quaggaboot.sh bgpd', )
+	cmddown=('killall bgpd', )
+	cmdval=('pidof bgpd', )
+	meta=The config file for this service can be found in the Zebra service.
+	starttime=
+	}
+    }
 }
 
 node n5 {
@@ -356,7 +423,7 @@ link l11 {
 }
 
 annotation a1 {
-    iconcoords {350.0 10.0 584.0 365.0}
+    iconcoords {335 0 591 374}
     type rectangle
     label {Area 0}
     labelcolor black
@@ -418,6 +485,13 @@ python /home/core/quagga_manager.py -l -f /home/core/practica4/tp04-topologia01.
 
 
 
+
+
+
+
+
+
+
 }
 
 hook 5:datacollect_hook.sh {
@@ -425,6 +499,13 @@ hook 5:datacollect_hook.sh {
 # session hook script; write commands here to execute on the host at the
 # specified state
 python /home/core/quagga_manager.py -s -f /home/core/practica4/tp04-topologia01.imn
+
+
+
+
+
+
+
 
 
 
