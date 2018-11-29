@@ -4,7 +4,7 @@ import json
   
 class OpenDayLight:
      cant_switch = None
-     priority=5
+     priority=15
      switch = []
 
      def startOpenDayLight(self):
