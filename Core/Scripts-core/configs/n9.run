@@ -1,0 +1,36 @@
+!
+!
+service integrated-vtysh-config
+!
+interface eth0
+ ip address 192.172.0.10/30
+ ipv6 nd suppress-ra
+!
+interface eth1
+ ip address 192.172.0.13/30
+ ipv6 nd suppress-ra
+!
+interface eth2
+ ip address 192.168.57.103/24
+ ipv6 nd suppress-ra
+!
+interface lo
+!
+no router bgp 9
+router bgp 64999
+ bgp router-id 192.172.0.10
+ network 192.172.0.0/24
+ neighbor 192.168.56.102 remote-as 65000
+!
+router ospf
+ ospf router-id 192.172.0.10
+ network 192.172.0.8/30 area 0.0.0.0
+ network 192.172.0.12/30 area 0.0.0.0
+ redistribute bgp
+!
+ip forwarding
+ipv6 forwarding
+!
+line vty
+!
+end

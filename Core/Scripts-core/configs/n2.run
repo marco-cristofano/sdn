@@ -1,0 +1,12 @@
+!
+!
+service integrated-vtysh-config
+!
+interface eth0
+ ipv6 nd suppress-ra
+!
+interface lo
+!
+line vty
+!
+end

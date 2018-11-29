@@ -229,19 +229,19 @@ node n9 {
     network-config {
 	hostname n9
 	!
+	interface eth2
+	 ip address 192.168.56.110/24
+	!
 	interface eth1
 	 ip address 192.172.0.13/30
 	!
 	interface eth0
 	 ip address 192.172.0.10/30
 	!
-	interface eth2
-	 ip address 192.168.57.103/24
-	!
     }
     canvas c1
-    iconcoords {461.0 322.0}
-    labelcoords {464.0 365.0}
+    iconcoords {461.0 323.0}
+    labelcoords {464.0 366.0}
     interface-peer {eth0 n8}
     interface-peer {eth1 n16}
     interface-peer {eth2 n7}
@@ -266,14 +266,14 @@ node n9 {
 	  
 	!
 	interface eth2
-	  ip address 192.168.57.103/24
+	  ip address 192.168.56.110/24
 	  
 	!
 	router ospf
 	  router-id 192.172.0.10
 	  network 192.172.0.8/30 area 0
 	  network 192.172.0.12/30 area 0
-	  no network 192.168.57.0/24 area 0
+	  no network 192.168.56.110/24 area 0
 	!
 	!
 	! BGP configuration
@@ -281,10 +281,9 @@ node n9 {
 	! You should configure the AS number below,
 	! along with this router's peers.
 	!
-	router bgp 9
+	router bgp 64999
 	  bgp router-id 192.172.0.10
-	  redistribute connected
-	! neighbor 1.2.3.4 remote-as 555
+	! neighbor 192.168.56.102 remote-as 65000
 	!
 	
 	}
@@ -492,6 +491,7 @@ python /home/core/quagga_manager.py -l -f /home/core/practica4/tp04-topologia01.
 
 
 
+
 }
 
 hook 5:datacollect_hook.sh {
@@ -499,6 +499,7 @@ hook 5:datacollect_hook.sh {
 # session hook script; write commands here to execute on the host at the
 # specified state
 python /home/core/quagga_manager.py -s -f /home/core/practica4/tp04-topologia01.imn
+
 
 
 
